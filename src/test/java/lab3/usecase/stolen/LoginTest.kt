@@ -61,16 +61,4 @@ class LoginTest : TestWithDrivers() {
             Assertions.assertEquals(loginButton.text, "Log in")
         }
     }
-
-    @Test
-    fun search() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
-            driver.get(Utils.BASE_URL)
-            driver.manage().window().size = Dimension(1100, 674)
-            val mainPage = MainPage(driver)
-            mainPage.search()
-            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[12]/div[1]")
-            Assertions.assertEquals(element.text, "Search results")
-        }
-    }
 }

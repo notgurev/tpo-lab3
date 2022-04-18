@@ -17,10 +17,11 @@ import java.util.List;
 
 public class Utils {
     public static final String CHROME_SYSTEM_PROPERTY_NAME = "webdriver.chrome.driver";
-    public static final String CHROME_SYSTEM_PROPERTY_PATH = "drivers/chromedriver";
+    public static final String CHROME_SYSTEM_PROPERTY_PATH = "drivers/chromedriver.exe";
     public static final String FIREFOX_SYSTEM_PROPERTY_NAME = "webdriver.gecko.driver";
     public static final String FIREFOX_SYSTEM_PROPERTY_PATH = "drivers/geckodriver";
     public static final String BASE_URL = "https://www.answers.com/";
+    public static final String USED_URL = "https://www.answers.com/search?q=&filter=all";
 
     public static final String CORRECT_LOGIN = "notgurev@gmail.com";
     public static final String CORRECT_PASSWORD = "!NdLnUEq6YCYSP.";

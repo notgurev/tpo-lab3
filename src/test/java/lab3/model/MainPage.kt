@@ -36,6 +36,25 @@ class MainPage(driver: WebDriver?) : Page(driver) {
         }
     }
 
+    fun searchWithParameters() {
+        with(driver) {
+            xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/div/div[1]/input").sendKeys("java")
+            xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/button").click()
+            xpath("/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/svg/use").click()
+        }
+    }
+
+    fun setParameter(number: Number) {
+        with(driver) {
+            xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/div[2]/button/div").click()
+            xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/span[${number}]")
+        }
+    }
+
+    fun setSearch() {
+        driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/div[7]/button").click()
+    }
+
     fun logout() {
         with(driver) {
             xpath("/html/body/div[1]/div[1]/div/div/div[1]/div/div[4]/div[3]/span/div/button/a/img").click()
