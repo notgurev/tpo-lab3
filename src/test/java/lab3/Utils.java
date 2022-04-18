@@ -2,6 +2,7 @@ package lab3;
 
 
 import lombok.SneakyThrows;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,7 @@ public class Utils {
     public static final String CORRECT_PASSWORD = "!NdLnUEq6YCYSP.";
     public static final String USERNAME = "notgurev";
     public static final String WRONG_PASSWORD = "Gavrilov";
+    public static final String WRONG_LOGIN = "Yarkeev";
 
     @SneakyThrows
     public static List<WebDriver> getDrivers() {
