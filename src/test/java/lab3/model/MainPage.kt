@@ -27,4 +27,11 @@ class MainPage(driver: WebDriver?) : Page(driver) {
             xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/button").click()
         }
     }
+
+    fun logout() {
+        with(driver) {
+            xpath("/html/body/div[1]/div[1]/div/div/div[1]/div/div[4]/div[3]/span/div/button/a/img").click()
+            xpath("/html/body/div[1]/div[1]/div/div/div[1]/div/div[4]/div[3]/span/div/div/div/a[3]/button/a").click()
+        }
+    }
 }

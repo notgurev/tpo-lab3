@@ -28,6 +28,7 @@ public class Utils {
 
     @SneakyThrows
     public static List<WebDriver> getDrivers() {
+//        Utils.prepareDrivers();
         List<WebDriver> drivers = new ArrayList<>();
         drivers.add(new ChromeDriver());
 //        drivers.add(new FirefoxDriver());

@@ -24,6 +24,20 @@ class LoginTest : TestWithDrivers() {
     }
 
     @Test
+    fun logout() {
+        drivers.parallelStream().forEach { driver: WebDriver ->
+            driver.get(Utils.BASE_URL)
+            driver.manage().window().size = Dimension(1100, 674)
+            val mainPage = MainPage(driver)
+            mainPage.login()
+            driver.get(Utils.BASE_URL)
+            mainPage.logout()
+            val loginButton = driver.xpath("/html/body/div[1]/div[1]/div/div/div[1]/div/div[4]/div[3]/span/button")
+            Assertions.assertEquals(loginButton.text, "Log in")
+        }
+    }
+
+    @Test
     fun search() {
         drivers.parallelStream().forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
