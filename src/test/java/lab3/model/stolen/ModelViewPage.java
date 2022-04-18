@@ -1,9 +1,9 @@
-package org.example.model.stolen;
+package lab3.model.stolen;
 
-import org.example.model.Page;
+import lab3.Utils;
+import lab3.model.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.example.Utils;
 
 public class ModelViewPage extends Page {
     public ModelViewPage(WebDriver driver) {

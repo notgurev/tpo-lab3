@@ -1,8 +1,8 @@
-package org.example.usecase.stolen;
+package lab3.usecase.stolen;
 
-import org.example.Utils;
-import org.example.cool.TestWithDrivers;
-import org.example.model.stolen.AdultConfirmationPage;
+import lab3.Utils;
+import lab3.cool.TestWithDrivers;
+import lab3.model.stolen.AdultConfirmationPage;
 import org.junit.jupiter.api.*;
 
 public class AdultConfirmationTest extends TestWithDrivers {

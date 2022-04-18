@@ -1,6 +1,6 @@
-package org.example.cool;
+package lab3.cool;
 
-import org.example.Utils;
+import lab3.Utils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

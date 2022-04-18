@@ -1,4 +1,4 @@
-package org.example;
+package lab3;
 
 
 import lombok.SneakyThrows;
@@ -7,7 +7,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,6 +23,7 @@ public class Utils {
 
     public static final String CORRECT_LOGIN = "notgurev@gmail.com";
     public static final String CORRECT_PASSWORD = "!NdLnUEq6YCYSP.";
+    public static final String USERNAME = "notgurev";
     public static final String WRONG_PASSWORD = "Gavrilov";
 
     @SneakyThrows

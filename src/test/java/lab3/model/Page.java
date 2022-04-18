@@ -1,4 +1,4 @@
-package org.example.model;
+package lab3.model;
 
 import org.openqa.selenium.WebDriver;
 

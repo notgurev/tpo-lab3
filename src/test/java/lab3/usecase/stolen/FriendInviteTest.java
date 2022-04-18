@@ -1,8 +1,8 @@
-package org.example.usecase.stolen;
+package lab3.usecase.stolen;
 
-import org.example.Utils;
-import org.example.model.stolen.AdultConfirmationPage;
-import org.example.model.stolen.MainPage;
+import lab3.Utils;
+import lab3.model.stolen.AdultConfirmationPage;
+import lab3.model.stolen.MainPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
