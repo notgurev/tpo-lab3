@@ -48,7 +48,13 @@ class MainPage(driver: WebDriver?) : Page(driver) {
     fun setParameter(number: Number) {
         with(driver) {
             xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/div[2]/button/div").click()
-            xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/span[${number}]")
+            xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/span[${number}]").click()
+        }
+    }
+
+    fun setMin(number: Number) {
+        with(driver) {
+            xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[4]/div/div[2]/input[2]").sendKeys(number.toString())
         }
     }
 
