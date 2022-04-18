@@ -7,6 +7,7 @@ import lab3.model.xpath
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.openqa.selenium.Dimension
+import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 
 class QuestionSearch: TestWithDrivers() {
@@ -34,7 +35,7 @@ class QuestionSearch: TestWithDrivers() {
                 setParameter(1)
                 setSearch()
             }
-            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[12]/div[1]")
+            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[1]")
             Assertions.assertEquals(element.text, "Search results")
             val activeTab = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[1]/a[2]")
             Assertions.assertEquals(activeTab.getAttribute("class").contains("border-primaryColor"), true)
@@ -52,8 +53,10 @@ class QuestionSearch: TestWithDrivers() {
                 setParameter(2)
                 setSearch()
             }
-            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[12]/div[1]")
-            Assertions.assertEquals(element.text, "Search results")
+            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[3]/div[1]")
+            Assertions.assertEquals(element.text, "Study Guides")
+            val activeTab = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[1]/a[3]")
+            Assertions.assertEquals(activeTab.getAttribute("class").contains("border-primaryColor"), true)
         }
     }
 
@@ -64,8 +67,11 @@ class QuestionSearch: TestWithDrivers() {
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
             mainPage.search()
-            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[12]/div[1]")
-            Assertions.assertEquals(element.text, "Search results")
+            driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/img[2]").click()
+            val searchField = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/input")
+            searchField.sendKeys(Keys.ENTER)
+            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[2]/h2")
+            Assertions.assertEquals(element.text, "Hmm... looks like we couldn’t find an answer.")
         }
     }
 }
