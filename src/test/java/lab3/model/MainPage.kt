@@ -1,6 +1,7 @@
 package lab3.model
 
 import lab3.Utils
+import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 
 class MainPage(driver: WebDriver?) : Page(driver) {
@@ -40,7 +41,7 @@ class MainPage(driver: WebDriver?) : Page(driver) {
         with(driver) {
             xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/div/div[1]/input").sendKeys("java")
             xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/button").click()
-            xpath("/html/body/div[2]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/svg/use").click()
+            findElement(By.cssSelector(".text-grey")).click() // xpath не работает
         }
     }
 
