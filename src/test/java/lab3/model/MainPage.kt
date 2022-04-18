@@ -20,4 +20,11 @@ class MainPage(driver: WebDriver?) : Page(driver) {
             xpath("/html/body/div[1]/div[1]/div/div/div[1]/div/div[4]/div[3]/span/div/div/div/a[1]/button/a").click()
         }
     }
+
+    fun search() {
+        with(driver) {
+            xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/div/div[1]/input").sendKeys("java")
+            xpath("/html/body/div[1]/div[1]/div/div/div[2]/main/section[1]/div[2]/button").click()
+        }
+    }
 }

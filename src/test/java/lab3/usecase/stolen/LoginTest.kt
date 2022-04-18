@@ -17,8 +17,21 @@ class LoginTest : TestWithDrivers() {
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
             mainPage.login()
-            val username = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/h1")
+            val username =
+                driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/h1")
             Assertions.assertEquals(username.text, Utils.USERNAME)
+        }
+    }
+
+    @Test
+    fun search() {
+        drivers.parallelStream().forEach { driver: WebDriver ->
+            driver.get(Utils.BASE_URL)
+            driver.manage().window().size = Dimension(1100, 674)
+            val mainPage = MainPage(driver)
+            mainPage.search()
+            val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[12]/div[1]")
+            Assertions.assertEquals(element.text, "Search results")
         }
     }
 }
