@@ -1,4 +1,4 @@
-package lab3.usecase.stolen
+package lab3.usecase
 
 import lab3.Utils
 import lab3.cool.TestWithDrivers
@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver
 class LoginTest : TestWithDrivers() {
     @Test
     fun login() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
@@ -26,7 +26,7 @@ class LoginTest : TestWithDrivers() {
 
     @Test
     fun loginWrongPassword() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
@@ -38,7 +38,7 @@ class LoginTest : TestWithDrivers() {
 
     @Test
     fun loginWrongEmail() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
@@ -50,7 +50,7 @@ class LoginTest : TestWithDrivers() {
 
     @Test
     fun logout() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)

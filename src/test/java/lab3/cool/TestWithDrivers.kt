@@ -1,28 +1,28 @@
-package lab3.cool;
+package lab3.cool
 
-import lab3.Utils;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
+import lab3.Utils
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.openqa.selenium.WebDriver
+import java.util.function.Consumer
 
-import java.util.List;
-
-public abstract class TestWithDrivers {
-    public List<WebDriver> drivers;
-
-    @BeforeAll
-    public static void prepareDrivers() {
-        Utils.prepareDrivers();
-    }
-
+abstract class TestWithDrivers {
+    var drivers: List<WebDriver>? = null
     @BeforeEach
-    private void beforeEach() { // todo before all?
-        drivers = Utils.getDrivers();
+    private fun beforeEach() { // todo before all?
+        drivers = Utils.drivers
     }
 
     @AfterEach
-    private void afterEach() {
-        drivers.forEach(WebDriver::quit);
+    private fun afterEach() {
+        drivers!!.forEach(Consumer { obj: WebDriver -> obj.quit() })
+    }
+
+    companion object {
+        @BeforeAll
+        fun prepareDrivers() {
+            Utils.prepareDrivers()
+        }
     }
 }

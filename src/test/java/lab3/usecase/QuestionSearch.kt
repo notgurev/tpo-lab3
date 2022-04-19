@@ -1,4 +1,4 @@
-package lab3.usecase.stolen
+package lab3.usecase
 
 import lab3.Utils
 import lab3.cool.TestWithDrivers
@@ -10,12 +10,15 @@ import org.openqa.selenium.By
 import org.openqa.selenium.Dimension
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
+import java.time.Duration
 
 class QuestionSearch: TestWithDrivers() {
 
     @Test
     fun search() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
@@ -27,11 +30,11 @@ class QuestionSearch: TestWithDrivers() {
 
     @Test
     fun searchQuestion() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
-            with (mainPage) {
+            with(mainPage) {
                 searchWithParameters()
                 setParameter(1)
                 setSearch()
@@ -45,11 +48,11 @@ class QuestionSearch: TestWithDrivers() {
 
     @Test
     fun searchGuide() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
-            with (mainPage) {
+            with(mainPage) {
                 searchWithParameters()
                 setParameter(2)
                 setSearch()
@@ -63,13 +66,15 @@ class QuestionSearch: TestWithDrivers() {
 
     @Test
     fun searchEmpty() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mainPage = MainPage(driver)
             mainPage.search()
-            driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/img[2]").click()
-            val searchField = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/input")
+            driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/img[2]")
+                .click()
+            val searchField =
+                driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div/div[3]/form/div/div/div/div[1]/input")
             searchField.sendKeys(Keys.ENTER)
             val element = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[2]/h2")
             Assertions.assertEquals(element.text, "Hmm... looks like we couldn’t find an answer.")
@@ -78,7 +83,7 @@ class QuestionSearch: TestWithDrivers() {
 
     @Test
     fun searchQuestionMin() {
-        drivers.parallelStream().forEach { driver: WebDriver ->
+        drivers?.parallelStream()?.forEach { driver: WebDriver ->
             val numberMin = 3
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
@@ -94,9 +99,11 @@ class QuestionSearch: TestWithDrivers() {
             val activeTab = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[1]/a[2]")
             Assertions.assertTrue(activeTab.getAttribute("class").contains("border-primaryColor"))
             var i = 2
-            val pathForFirstElement = "/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[3]/div[2]/p"
-            while (driver.findElement(By.xpath(pathForFirstElement)).isDisplayed) {
-                var answer = driver.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[3]/div[${i}]/p")
+            while (driver.findElements(By.xpath(
+                    "/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[3]/div[${i}]/p"
+                )).size > 0) {
+                var elementPath = "/html/body/div[1]/div[1]/div[2]/div/div/div[2]/div[2]/div[3]/div[${i}]/p"
+                var answer = driver.xpath(elementPath)
                 Assertions.assertTrue(answer.text.toString().split(" ")[0].toInt() >= numberMin)
                 i+=2
             }

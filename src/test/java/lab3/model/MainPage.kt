@@ -4,7 +4,7 @@ import lab3.Utils
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 
-class MainPage(driver: WebDriver?) : Page(driver) {
+class MainPage(driver: WebDriver) : Page(driver) {
     private fun tryLogin(username: String, password: String) {
         with(driver) {
             xpath("/html/body/div[1]/div[1]/div/div/div[1]/div/div[4]/div[3]/span/button").click()

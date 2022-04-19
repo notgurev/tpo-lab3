@@ -1,4 +1,4 @@
-package lab3.usecase.stolen
+package lab3.usecase
 
 import lab3.Utils
 import lab3.cool.TestWithDrivers
@@ -11,7 +11,7 @@ import org.openqa.selenium.Dimension
 class QuestionCreationTest : TestWithDrivers() {
     @Test
     fun tryCreateEmptyQuestion() {
-        drivers.parallelStream().forEach { driver ->
+        drivers?.parallelStream()?.forEach { driver ->
             driver.get(Utils.BASE_URL)
             driver.manage().window().size = Dimension(1100, 674)
             val mp = MainPage(driver)
