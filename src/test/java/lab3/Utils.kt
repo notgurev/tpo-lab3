@@ -30,7 +30,7 @@ object Utils {
             prepareDrivers();
             val drivers: MutableList<WebDriver> = ArrayList()
             drivers.add(ChromeDriver());
-//            drivers.add(FirefoxDriver())
+            drivers.add(FirefoxDriver())
             return drivers
         }
 
